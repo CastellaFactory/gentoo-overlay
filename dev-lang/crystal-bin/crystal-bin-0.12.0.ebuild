@@ -11,8 +11,8 @@ HOMEPAGE="http://crystal-lang.org/"
 MY_PN="${PN/-bin/}"
 MY_PV="${PV}-1"
 SRC_URI="
-	amd64? ( https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-x86_64.tar.gz -> ${P}.tar.gz )
-	x86? ( https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-i686.tar.gz -> ${P}.tar.gz )
+	amd64? ( https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-x86_64.tar.gz -> ${P}-x86_64.tar.gz )
+	x86? ( https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-i686.tar.gz -> ${P}-i686.tar.gz )
 "
 
 LICENSE="Apache-2.0"
@@ -23,12 +23,14 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}"
+RESTRICT="mirror"
+
+S=${WORKDIR}
 
 src_install() {
     INSTALL_PATH="/usr/share/${MY_PN}-${MY_PV}"
     insinto "${INSTALL_PATH}"
-    doins -r "${S}/${MY_PN}-${MY_PV}/."
+    doins -r "${WORKDIR}/${MY_PN}-${MY_PV}/."
     fperms +x "${INSTALL_PATH}/bin/crystal"
     fperms +x "${INSTALL_PATH}/embedded/bin/crystal"
     fperms +x "${INSTALL_PATH}/embedded/bin/pcregrep"
@@ -36,5 +38,5 @@ src_install() {
     fperms +x "${INSTALL_PATH}/embedded/bin/shards"
     dosym "${INSTALL_PATH}/bin/crystal" "/usr/bin/crystal"
     insinto "/usr/share/zsh/site-functions"
-    newins "${INSTALL_PATH}/etc/completion.zsh" "_crystal"
+    newins "${WORKDIR}/${MY_PN}-${MY_PV}/etc/completion.zsh" "_crystal"
 }
