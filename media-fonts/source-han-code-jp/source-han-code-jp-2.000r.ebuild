@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -14,13 +14,14 @@ SRC_URI="https://github.com/adobe-fonts/${PN}/archive/${MY_PV}.zip -> ${P}.zip"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="x86 amd64"
+IUSE=""
 
 DEPEND="app-arch/unzip"
 RDEPEND=""
 
 S="${WORKDIR}/${PN}-${MY_PV}"
-RESTRICT="binchecks strip"
+RESTRICT="binchecks strip mirror"
 
 DOCS=( README.md )
 
