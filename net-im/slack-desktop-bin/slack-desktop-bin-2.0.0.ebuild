@@ -19,14 +19,14 @@ SRC_URI="
 SLOT="0"
 KEYWORDS="-* x86 amd64"
 DEPEND="gnome-base/gconf
-    x11-libs/gtk+:2
-    virtual/udev
-    dev-libs/libgcrypt
-    x11-libs/libnotify
-    x11-libs/libXtst
-    dev-libs/nss
-    dev-lang/python
-    x11-misc/xdg-utils"
+	x11-libs/gtk+:2
+	virtual/udev
+	dev-libs/libgcrypt
+	x11-libs/libnotify
+	x11-libs/libXtst
+	dev-libs/nss
+	dev-lang/python
+	x11-misc/xdg-utils"
 RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"

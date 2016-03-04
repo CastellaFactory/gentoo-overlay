@@ -10,8 +10,8 @@ DESCRIPTION="Advanced cross-platform Google Drive client"
 HOMEPAGE="https://www.insynchq.com/"
 MAIN_INSTALLER_STRING="http://s.insynchq.com/builds/insync-${PV}-fc21"
 SRC_URI="
-	x86?      ( ${MAIN_INSTALLER_STRING}.i686.rpm )
-	amd64?    ( ${MAIN_INSTALLER_STRING}.x86_64.rpm )"
+	x86?	  ( ${MAIN_INSTALLER_STRING}.i686.rpm )
+	amd64?	  ( ${MAIN_INSTALLER_STRING}.x86_64.rpm )"
 
 SLOT="0"
 KEYWORDS="-* x86 amd64"

@@ -19,8 +19,8 @@ LICENSE="Microsoft"
 SLOT="0"
 KEYWORDS="-* x86 amd64"
 DEPEND="gnome-base/gconf
-    x11-libs/gtk+:2
-    media-libs/libpng"
+	x11-libs/gtk+:2
+	media-libs/libpng"
 RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
