@@ -28,7 +28,7 @@ RESTRICT="mirror"
 S=${WORKDIR}
 
 src_install() {
-    INSTALL_PATH="/usr/share/${MY_PN}-${MY_PV}"
+    INSTALL_PATH="/opt/${MY_PN}-${MY_PV}"
     insinto "${INSTALL_PATH}"
     doins -r "${WORKDIR}/${MY_PN}-${MY_PV}/."
     fperms +x "${INSTALL_PATH}/bin/crystal"
@@ -36,7 +36,7 @@ src_install() {
     fperms +x "${INSTALL_PATH}/embedded/bin/pcregrep"
     fperms +x "${INSTALL_PATH}/embedded/bin/pcretest"
     fperms +x "${INSTALL_PATH}/embedded/bin/shards"
-    dosym "${INSTALL_PATH}/bin/crystal" "/usr/bin/crystal"
+	dosym "${INSTALL_PATH}/bin/crystal" "/usr/bin/crystal"
     insinto "/usr/share/zsh/site-functions"
     newins "${WORKDIR}/${MY_PN}-${MY_PV}/etc/completion.zsh" "_crystal"
 }
