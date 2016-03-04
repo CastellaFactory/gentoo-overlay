@@ -32,4 +32,6 @@ src_install() {
 	doins -r *
 	dosym "/usr/share/${PN}/Code" "/usr/bin/vscode"
 	fperms +x "/usr/share/${PN}/Code"
+	make_desktop_entry "vscode %U" "Visual Studio Code" "/usr/share/${PN}/resources/app/resources/linux/code.png" "Development"
+
 }
