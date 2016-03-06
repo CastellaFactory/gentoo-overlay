@@ -11,7 +11,7 @@ HOMEPAGE="https://www.nylas.com/n1"
 SRC_URI="https://edgehill.s3-us-west-2.amazonaws.com/${PV}-4e3595b/linux-deb/x64/N1.deb"
 
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 DEPEND="dev-vcs/git
 	gnome-base/gconf
 	x11-libs/gtk+:2

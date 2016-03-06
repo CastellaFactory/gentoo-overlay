@@ -14,7 +14,7 @@ SRC_URI="https://github.com/adobe-fonts/${PN}/archive/${MY_PV}.zip -> ${P}.zip"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~x86 ~amd64"
 
 DEPEND="app-arch/unzip"
 RDEPEND=""

@@ -15,7 +15,7 @@ SRC_URI="
 
 DESCRIPTION="LLVM D Compiler"
 HOMEPAGE="https://ldc-developers.github.com/ldc"
-KEYWORDS="x86 amd64"
+KEYWORDS="-* ~x86 ~amd64"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""

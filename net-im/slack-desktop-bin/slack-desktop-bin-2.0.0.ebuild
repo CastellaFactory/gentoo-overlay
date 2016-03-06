@@ -17,7 +17,7 @@ SRC_URI="
 "
 
 SLOT="0"
-KEYWORDS="-* x86 amd64"
+KEYWORDS="-* ~x86 ~amd64"
 DEPEND="gnome-base/gconf
 	x11-libs/gtk+:2
 	virtual/udev

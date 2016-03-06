@@ -14,7 +14,7 @@ SRC_URI="
 	amd64?	  ( ${MAIN_INSTALLER_STRING}.x86_64.rpm )"
 
 SLOT="0"
-KEYWORDS="-* x86 amd64"
+KEYWORDS="-* ~x86 ~amd64"
 DEPEND="<dev-libs/libevent-2.1"
 RDEPEND="${DEPEND}"
 
