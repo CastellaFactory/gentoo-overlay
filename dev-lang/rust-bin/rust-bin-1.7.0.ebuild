@@ -52,12 +52,8 @@ src_install() {
 	dosym "/opt/${MY_P}/bin/rust-gdb" "/usr/bin/rust-gdb"
 	dosym "/opt/${MY_P}/bin/cargo" "/usr/bin/cargo"
 
-	insinto "/usr/share/doc/${MY_P}"
-	doins -r "${S}/rust-docs/share/doc/rust/html"
-	
 	insinto "/usr/share/zsh/site-functions"
 	newins "${S}/cargo/share/zsh/site-functions/_cargo" "_cargo"
-
 
 	cat <<-EOF > "${T}"/50${MY_P}
 	LDPATH="/opt/${MY_P}/lib"
