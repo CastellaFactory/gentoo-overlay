@@ -11,6 +11,8 @@ HOMEPAGE="https://code.visualstudio.com"
 
 HASH="db71ac615ddf9f33b133ff2536f5d33a77d4774e"
 
+MY_PN="${PN/-bin/}"
+
 SRC_URI="
 	amd64? ( https://az764295.vo.msecnd.net/stable/${HASH}/VSCode-linux-x64-stable.zip -> VSCode-linux-${PV}-x64.zip )
 	x86? ( https://az764295.vo.msecnd.net/stable/${HASH}/VSCode-linux-ia32-stable.zip -> VSCode-linux-${PV}-ia32.zip )
@@ -25,13 +27,21 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
 
-S="${WORKDIR}/VSCode-linux-x64"
+src_unpack() {
+	default
+
+	local postfix
+	use amd64 && postfix=linux-x64
+	use x86 && postfix=linux-ia32
+
+	mv "${WORKDIR}/VSCode-${postfix}" "${S}" || die
+}
 
 src_install() {
-	insinto "/usr/share/${PN}"
+	insinto "/usr/share/${MY_PN}"
 	doins -r *
-	dosym "/usr/share/${PN}/Code" "/usr/bin/vscode"
-	fperms +x "/usr/share/${PN}/Code"
-	make_desktop_entry "vscode %U" "Visual Studio Code" "/usr/share/${PN}/resources/app/resources/linux/code.png" "Development"
+	dosym "/usr/share/${MY_PN}/Code" "/usr/bin/vscode"
+	fperms +x "/usr/share/${MY_PN}/Code"
+	make_desktop_entry "vscode %U" "Visual Studio Code" "/usr/share/${MY_PN}/resources/app/resources/linux/code.png" "Development"
 
 }

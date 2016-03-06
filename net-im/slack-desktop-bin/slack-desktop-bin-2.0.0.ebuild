@@ -38,5 +38,5 @@ src_unpack() {
 }
 
 src_install() {
-	cp -R "${WORKDIR}/usr" "${D}" || die "install failed!"
+	cp -R "${S}/usr" "${D}" || die "install failed!"
 }

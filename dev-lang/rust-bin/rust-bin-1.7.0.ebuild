@@ -19,6 +19,8 @@ SLOT="stable"
 KEYWORDS="amd64 x86"
 IUSE=""
 
+RESTRICT="mirror"
+
 DEPEND="!dev-lang/rust:0"
 RDEPEND="${DEPEND}"
 
@@ -67,7 +69,7 @@ pkg_postinst() {
 	elog "for your convenience it is installed under /usr/bin/rust-gdb."
 
 	if has_version 'app-shells/zsh'; then
-		elog "zsh completion for rust at 'https://github.com/rust-lang/zsh-config'"
+		elog "zsh completion for rust: 'https://github.com/rust-lang/zsh-config'"
 	fi
 }
 

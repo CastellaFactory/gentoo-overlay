@@ -18,13 +18,14 @@ KEYWORDS="-* x86 amd64"
 DEPEND="<dev-libs/libevent-2.1"
 RDEPEND="${DEPEND}"
 
+S=${WORKDIR}
+
 src_unpack() {
 	rpm_src_unpack ${A}
-	mkdir -p "${S}" # Without this src_prepare fails
 }
 
 src_install() {
-	cp -pPR "${WORKDIR}"/{usr,etc} "${D}"/ || die "Installation failed"
+	cp -pPR "${S}"/{usr,etc} "${D}"/ || die "Installation failed"
 
 	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70${PN}" || die
 	insinto "/etc/revdep-rebuild" && doins "${T}/70${PN}" || die

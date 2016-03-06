@@ -33,8 +33,8 @@ src_unpack() {
 }
 
 src_install() {
-	sed -i -e 's/Categories=.*/Categories=GNOME;GTK;Network;Utility;/' "${WORKDIR}/usr/share/applications/nylas.desktop"
-	rm "${WORKDIR}/usr/bin/nylas"
-	cp -R "${WORKDIR}/usr" "${D}" || die "install failed!"
+	sed -i -e 's/Categories=.*/Categories=GNOME;GTK;Network;Utility;/' "${S}/usr/share/applications/nylas.desktop"
+	rm "${S}/usr/bin/nylas"
+	cp -R "${S}/usr" "${D}" || die "install failed!"
 	dosym "/usr/share/nylas/nylas" "/usr/bin/nylas"
 }
