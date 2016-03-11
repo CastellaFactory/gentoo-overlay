@@ -37,6 +37,7 @@ src_install() {
 	fperms +x "${install_path}/embedded/bin/pcretest"
 	fperms +x "${install_path}/embedded/bin/shards"
 	dosym "${install_path}/bin/crystal" "/usr/bin/crystal"
+	dosym "${install_path}/embedded/bin/shards" "/usr/bin/shards"
 	insinto "/usr/share/zsh/site-functions"
 	newins "${S}/${MY_PN}-${MY_PV}/etc/completion.zsh" "_crystal"
 }
