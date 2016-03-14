@@ -8,9 +8,11 @@ inherit unpacker
 
 DESCRIPTION="Package Management for Golang"
 HOMEPAGE="https://glide.sh/"
+MY_PN="${PN/-bin/}"
+MY_P="${MY_PN}-${PV}"
 SRC_URI="
-	x86?	  ( https://github.com/Masterminds/glide/releases/download/0.9.3/glide-${PV}-linux-386.tar.gz )
-	amd64?	  ( https://github.com/Masterminds/glide/releases/download/0.9.3/glide-${PV}-linux-amd64.tar.gz )
+	x86?	  ( https://github.com/Masterminds/glide/releases/download/${PV}/${MY_P}-linux-386.tar.gz )
+	amd64?	  ( https://github.com/Masterminds/glide/releases/download/${PV}/${MY_P}-linux-amd64.tar.gz )
 "
 
 LICENSE="MIT"
@@ -18,6 +20,8 @@ SLOT="0"
 KEYWORDS="-* ~x86 ~amd64"
 DEPEND=""
 RDEPEND="${DEPEND}"
+
+RESTRICT="mirror"
 
 src_unpack() {
 	default
@@ -29,7 +33,7 @@ src_unpack() {
 }
 
 src_install() {
-	local install_path="/opt/glide"
+	local install_path="/opt/${MY_PN}"
 	insinto "${install_path}"
 	doins -r *
 	dosym "${install_path}/glide" "/usr/bin/glide"
