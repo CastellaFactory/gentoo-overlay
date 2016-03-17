@@ -9,8 +9,7 @@ inherit unpacker eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 
-HASH="db71ac615ddf9f33b133ff2536f5d33a77d4774e"
-
+HASH="f291f4ad600767626b24a4b15816b04bee9a3049"
 MY_PN="${PN/-bin/}"
 
 SRC_URI="
@@ -40,8 +39,7 @@ src_unpack() {
 src_install() {
 	insinto "/usr/share/${MY_PN}"
 	doins -r *
-	dosym "/usr/share/${MY_PN}/Code" "/usr/bin/vscode"
-	fperms +x "/usr/share/${MY_PN}/Code"
+	dosym "/usr/share/${MY_PN}/code" "/usr/bin/vscode"
+	fperms +x "/usr/share/${MY_PN}/code"
 	make_desktop_entry "vscode %U" "Visual Studio Code" "/usr/share/${MY_PN}/resources/app/resources/linux/code.png" "Development"
-
 }
