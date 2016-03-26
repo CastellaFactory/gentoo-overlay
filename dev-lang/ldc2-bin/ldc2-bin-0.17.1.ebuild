@@ -9,8 +9,8 @@ MY_PN="ldc2"
 MY_P="${MY_PN}-${PV}"
 
 SRC_URI="
-	amd64? ( https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86_64.tar.gz )
-	x86? ( https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86.tar.gz )
+	amd64? ( https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86_64.tar.xz )
+	x86? ( https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86.tar.xz )
 "
 
 DESCRIPTION="LLVM D Compiler"
