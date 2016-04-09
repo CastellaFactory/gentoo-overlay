@@ -1,4 +1,4 @@
-DIST glide-0.10.1-linux-386.tar.gz 3442809 SHA256 36f839bcdf2899ab7e9f18aaa3b8f52f9495c0dbf68807ff145c630ed6d6cc1d
-DIST glide-0.10.1-linux-amd64.tar.gz 3694877 SHA256 f9a89c5155d4d10ca53072c2d503d16bc8bcf5ef898495e5fa9feb13e0379aa5
+DIST glide-0.10.2-linux-386.tar.gz 3445222 SHA256 e60da4ba997d9f297a7709feeebb1ecf88564aa95e0fab5c2d8e0ad43086b894
+DIST glide-0.10.2-linux-amd64.tar.gz 3696804 SHA256 0eedb7f47ff4d184ab334f8dd8be843f8e98774b6ccd92cbe71a6e6c7a3d5da8
 DIST glide-0.9.3-linux-386.tar.gz 3326470 SHA256 c2b7acb35ce2ef22a2cc953a4648e99cab56897525cd4693c7eeeb1b1ef068cd
 DIST glide-0.9.3-linux-amd64.tar.gz 3565893 SHA256 0c706bdcb8d7eb9a1e184bc25bb77eb23202c74f7b076588b427210ccdd0e3b0
