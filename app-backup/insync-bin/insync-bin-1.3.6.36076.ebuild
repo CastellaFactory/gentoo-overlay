@@ -15,7 +15,7 @@ SRC_URI="
 
 SLOT="0"
 KEYWORDS="-* ~x86 ~amd64"
-DEPEND="<dev-libs/libevent-2.1"
+DEPEND="dev-libs/libevent media-libs/libwebp"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}
