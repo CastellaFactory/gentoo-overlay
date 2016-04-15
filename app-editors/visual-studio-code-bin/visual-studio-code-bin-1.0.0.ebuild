@@ -9,7 +9,7 @@ inherit unpacker eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 
-HASH="5b5f4db87c10345b9d5c8d0bed745bcad4533135"
+HASH="fa6d0f03813dfb9df4589c30121e9fcffa8a8ec8/"
 MY_PN="${PN/-bin/}"
 
 SRC_URI="
