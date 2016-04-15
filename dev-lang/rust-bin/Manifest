@@ -1,2 +1,4 @@
 DIST rust-1.7.0-i686-unknown-linux-gnu.tar.gz 106777697 SHA256 ba9d55992c9d584c2083ca7051fcb46db9b63b2e701f370d94f28478b5a0208f
 DIST rust-1.7.0-x86_64-unknown-linux-gnu.tar.gz 106063019 SHA256 d36634bd8df3d7565487b70af03dfda1c43c635cd6f2993f47cd61fda00d890a
+DIST rust-1.8.0-i686-unknown-linux-gnu.tar.gz 110936951 SHA256 01bdf577ee120df00c83628de47de6c467723350634efd6bedf935da2a65b06d
+DIST rust-1.8.0-x86_64-unknown-linux-gnu.tar.gz 110156056 SHA256 d5a7c10070f8053defe07d1704762c91e94fc30a1020d16b111d63e9af365d48
