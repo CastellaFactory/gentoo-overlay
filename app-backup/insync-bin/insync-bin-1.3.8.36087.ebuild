@@ -18,6 +18,8 @@ KEYWORDS="-* ~x86 ~amd64"
 DEPEND="dev-libs/libevent media-libs/libwebp"
 RDEPEND="${DEPEND}"
 
+RESTRICT="mirror"
+
 S=${WORKDIR}
 
 src_unpack() {
