@@ -19,6 +19,8 @@ SRC_URI="
 SLOT="0"
 KEYWORDS="-* ~x86 ~amd64"
 DEPEND="gnome-base/gconf
+	gnome-base/libgnome-keyring
+	gnome-base/gnome-keyring
 	x11-libs/gtk+:2
 	virtual/udev
 	dev-libs/libgcrypt
