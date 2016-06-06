@@ -20,7 +20,7 @@ LICENSE="BSD"
 SLOT="0"
 IUSE=""
 
-RESTRICT="mirror"
+RESTRICT="mirror strip"
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
