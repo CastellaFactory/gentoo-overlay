@@ -8,16 +8,9 @@ inherit unpacker eutils
 
 DESCRIPTION="A messaging app for teams that is on a mission to make your working life simpler, more pleasant, and more pruductive"
 HOMEPAGE="https://slack.com/"
-
-SRC_URI_AMD64="https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-${PV}-amd64.deb"
-SRC_URI_X86="https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-${PV}-i386.deb"
-SRC_URI="
-	amd64? ( ${SRC_URI_AMD64} )
-	x86? ( ${SRC_URI_X86} )
-"
-
+SRC_URI="https://downloads.slack-edge.com/linux_releases/slack-desktop-${PV}-amd64.deb"
 SLOT="0"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 DEPEND="gnome-base/gconf
 	gnome-base/libgnome-keyring
 	gnome-base/gnome-keyring
