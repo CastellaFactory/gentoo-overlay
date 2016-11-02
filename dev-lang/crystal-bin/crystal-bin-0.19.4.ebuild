@@ -10,14 +10,11 @@ DESCRIPTION="The Crystal programming language"
 HOMEPAGE="http://crystal-lang.org/"
 MY_PN="${PN/-bin/}"
 MY_PV="${PV}-1"
-SRC_URI="
-	amd64? ( https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-x86_64.tar.gz -> ${P}-x86_64.tar.gz )
-	x86? ( https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-i686.tar.gz -> ${P}-i686.tar.gz )
-"
+SRC_URI="https://github.com/crystal-lang/crystal/releases/download/${PV}/${MY_PN}-${MY_PV}-linux-x86_64.tar.gz -> ${P}-x86_64.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 IUSE=""
 
 DEPEND=""

@@ -8,14 +8,11 @@ inherit eutils
 MY_PN="ldc2"
 MY_P="${MY_PN}-${PV}"
 
-SRC_URI="
-	amd64? ( https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86_64.tar.xz )
-	x86? ( https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86.tar.xz )
-"
+SRC_URI="https://github.com/ldc-developers/ldc/releases/download/v${PV}/${MY_P}-linux-x86_64.tar.xz"
 
 DESCRIPTION="LLVM D Compiler"
 HOMEPAGE="https://ldc-developers.github.com/ldc"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""

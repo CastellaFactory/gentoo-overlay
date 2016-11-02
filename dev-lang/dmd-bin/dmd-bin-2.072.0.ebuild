@@ -8,13 +8,10 @@ inherit rpm eutils
 MY_PN="dmd"
 MY_P="${MY_PN}-${PV}"
 
-SRC_URI="
-	amd64? ( http://downloads.dlang.org/releases/2.x/${PV}/${MY_P}-0.fedora.x86_64.rpm )
-	x86? ( http://downloads.dlang.org/releases/2.x/${PV}/${MY_P}-0.fedora.i386.rpm )
-"
+SRC_URI="http://downloads.dlang.org/releases/2.x/${PV}/${MY_P}-0.fedora.x86_64.rpm"
 DESCRIPTION="Reference compiler for the D programming language"
 HOMEPAGE="http://dlang.org/"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 LICENSE="BSD"
 SLOT="0"
 IUSE=""
