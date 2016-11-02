@@ -9,14 +9,11 @@ inherit unpacker
 DESCRIPTION="Package Management for Golang"
 HOMEPAGE="https://glide.sh/"
 MY_PN="${PN/-bin/}"
-SRC_URI="
-	x86?	  ( https://github.com/spf13/hugo/releases/download/v${PV}/${MY_PN}_${PV}_linux-32bit.tgz )
-	amd64?	  ( https://github.com/spf13/hugo/releases/download/v${PV}/${MY_PN}_${PV}_linux-64bit.tgz )
-"
+SRC_URI="https://github.com/spf13/hugo/releases/download/v${PV}/${MY_PN}_${PV}_linux-64bit.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 DEPEND=""
 RDEPEND="${DEPEND}"
 
@@ -25,11 +22,11 @@ RESTRICT="mirror"
 S=${WORKDIR}
 
 src_install() {
-	local install_path="/opt/${MY_PN}"
+	local install_path="/opt/${MY_PN}-${PV}"
 
 	insinto "${install_path}"
-	doins -r *
-	dosym "${install_path}/hugo" "/usr/bin/hugo"
-	fperms +x "${install_path}/hugo"
+	doins -r ${MY_PN}_${PV}_linux_amd64/*
+	dosym "${install_path}/hugo_${PV}_linux_amd64" "/usr/bin/hugo"
+	fperms +x "${install_path}/hugo_${PV}_linux_amd64"
 }
 

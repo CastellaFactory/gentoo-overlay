@@ -9,14 +9,11 @@ inherit unpacker
 DESCRIPTION="Package Management for Golang"
 HOMEPAGE="https://glide.sh/"
 MY_PN="${PN/-bin/}"
-SRC_URI="
-	x86?	  ( https://github.com/Masterminds/glide/releases/download/v${PV}/${MY_PN}-v${PV}-linux-386.tar.gz )
-	amd64?	  ( https://github.com/Masterminds/glide/releases/download/v${PV}/${MY_PN}-v${PV}-linux-amd64.tar.gz )
-"
+SRC_URI="https://github.com/Masterminds/glide/releases/download/v${PV}/${MY_PN}-v${PV}-linux-amd64.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 DEPEND=""
 RDEPEND="${DEPEND}"
 
