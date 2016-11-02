@@ -11,7 +11,7 @@ SRC_URI="https://github.com/include-what-you-use/${PN}/archive/clang_${PV}.tar.g
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="-* ~amd64"
 
 RDEPEND="=sys-devel/llvm-3.8*
 	=sys-devel/clang-3.8*

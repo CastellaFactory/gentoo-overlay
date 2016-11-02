@@ -12,7 +12,7 @@ HOMEPAGE="https://toolbelt.herokuapp.com/"
 SRC_URI="https://s3.amazonaws.com/assets.heroku.com/${PN}/${P}.tgz"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64"
 DEPEND="dev-lang/ruby"
 RDEPEND="${DEPEND}"
 
