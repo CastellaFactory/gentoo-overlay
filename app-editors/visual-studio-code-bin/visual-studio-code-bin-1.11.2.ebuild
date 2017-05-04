@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit eutils pax-utils
+inherit eutils
 
 DESCRIPTION="Multiplatform Visual Studio Code from EULA MIT"
 HOMEPAGE="https://code.visualstudio.com"
@@ -32,10 +32,7 @@ RDEPEND="
 
 S="${WORKDIR}/VSCode-linux-x64"
 
-QA_PRESTRIPPED="opt/${PN}/code"
-
 src_install(){
-	pax-mark m code
 	insinto "/opt/${PN}"
 	doins -r *
 	fperms +x "/opt/${PN}/code"
@@ -46,10 +43,5 @@ src_install(){
 	insinto "/usr/share/licenses/${PN}"
 	newins "resources/app/LICENSE.txt" "LICENSE"
 	make_desktop_entry "vscode" "Visual Studio Code" "/opt/${PN}/resources/app/resources/linux/code.png" "Development;IDE"
-}
-
-pkg_postinst(){
-	elog "You may install some additional utils, so check them in:"
-	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
 }
 
