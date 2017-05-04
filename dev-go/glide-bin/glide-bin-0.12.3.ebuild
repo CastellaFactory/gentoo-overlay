@@ -19,20 +19,13 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
 
-src_unpack() {
-	default
-
-	local dir_name
-	use amd64 && dir_name=linux-amd64
-	use x86 && dir_name=linux-386
-	mv "${WORKDIR}/${dir_name}" "${S}" || die
-}
+S="${WORKDIR}/linux-amd64"
 
 src_install() {
-	local install_path="/opt/${MY_PN}"
+	local install_path="/opt/${MY_PN}-${PV}"
 	insinto "${install_path}"
-	doins -r *
-	dosym "${install_path}/glide" "/usr/bin/glide"
+	doins -r .
+	dosym "${install_path}/glide" "/opt/bin/glide"
 	fperms +x "${install_path}/glide"
 }
 
