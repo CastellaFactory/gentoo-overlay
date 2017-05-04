@@ -36,7 +36,7 @@ src_install() {
 	insinto "/usr/share/zsh/site-functions"
 	newins "complete/_rg" "_rg"
 	# fish
-	insinto "/usr/share/fish/completions"
+	insinto "/usr/share/fish/vendor_completions.d"
 	newins "complete/rg.fish" "rg.fish"
 }
 
