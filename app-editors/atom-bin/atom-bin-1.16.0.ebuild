@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="A hackable text editor for the 21st Century - Binary package"
 HOMEPAGE="https://atom.io"
-MY_PN="atom"
+MY_PN="${PN/-bin/}"
 SRC_URI="https://github.com/${MY_PN}/${MY_PN}/releases/download/v${PV}/${MY_PN}-amd64.tar.gz -> ${MY_PN}-amd64-${PV}.tar.gz"
 
 RESTRICT="mirror strip"

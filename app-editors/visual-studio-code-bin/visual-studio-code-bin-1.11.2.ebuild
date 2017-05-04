@@ -7,6 +7,7 @@ inherit eutils
 
 DESCRIPTION="Multiplatform Visual Studio Code from EULA MIT"
 HOMEPAGE="https://code.visualstudio.com"
+MY_PN="${PN/-bin/}"
 SRC_URI="https://vscode-update.azurewebsites.net/${PV}/linux-x64/stable -> ${P}-amd64.tar.gz"
 RESTRICT="mirror strip"
 
@@ -33,13 +34,13 @@ RDEPEND="
 S="${WORKDIR}/VSCode-linux-x64"
 
 src_install(){
-	insinto "/opt/${PN}"
+	insinto "/opt/${MY_PN}-${PV}"
 	doins -r *
-	fperms +x "/opt/${PN}/code"
-	fperms +x "/opt/${PN}/bin/code"
-        dosym "/opt/${PN}/bin/code" "/opt/bin/vscode"
-        fperms +x "/opt/${PN}/bin/code"
-	fperms +x "/opt/${PN}/libnode.so"
+	fperms +x "/opt/${MY_PN}-${PV}/code"
+	fperms +x "/opt/${MY_PN}-${PV}/bin/code"
+        dosym "/opt/${MY_PN}-${PV}/bin/code" "/opt/bin/vscode"
+        fperms +x "/opt/${MY_PN}-${PV}/bin/code"
+	fperms +x "/opt/${MY_PN}-${PV}/libnode.so"
 	insinto "/usr/share/licenses/${PN}"
 	newins "resources/app/LICENSE.txt" "LICENSE"
 	make_desktop_entry "vscode" "Visual Studio Code" "/opt/${PN}/resources/app/resources/linux/code.png" "Development;IDE"
