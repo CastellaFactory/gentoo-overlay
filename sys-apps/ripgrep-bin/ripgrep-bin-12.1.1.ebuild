@@ -1,8 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=6
+EAPI=7
 
 inherit eutils
 
@@ -38,5 +38,7 @@ src_install() {
 	# fish
 	insinto "/usr/share/fish/vendor_completions.d"
 	newins "complete/rg.fish" "rg.fish"
+	
+	doman "${S}/doc/rg.1"
 }
 
