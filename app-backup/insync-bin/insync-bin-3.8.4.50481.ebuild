@@ -8,7 +8,7 @@ inherit rpm xdg-utils
 
 DESCRIPTION="Advanced cross-platform Google Drive client"
 HOMEPAGE="https://www.insynchq.com/"
-SRC_URI="https://d2t3ff60b2tol4.cloudfront.net/builds/insync-${PV}-fc34.x86_64.rpm"
+SRC_URI="https://cdn.insynchq.com/builds/linux/insync-${PV}-fc34.x86_64.rpm"
 
 SLOT="0"
 KEYWORDS="-* ~amd64"
@@ -18,6 +18,9 @@ RDEPEND="${DEPEND}"
 RESTRICT="mirror strip"
 
 S=${WORKDIR}
+
+QA_FLAGS_IGNORED=".*"
+QA_PREBUILT="*"
 
 PATCHES=(
     "${FILESDIR}/insync-3.3.2-lib64.patch"
