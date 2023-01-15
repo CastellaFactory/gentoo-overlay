@@ -1,55 +1,73 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI=7
+EAPI=8
 
-inherit rpm xdg-utils
+inherit unpacker xdg
 
-DESCRIPTION="Advanced cross-platform Google Drive client"
+DESCRIPTION="Advanced cross-platform Dropbox, Google Drive and Microsoft OneDrive client"
 HOMEPAGE="https://www.insynchq.com/"
-SRC_URI="https://cdn.insynchq.com/builds/linux/insync-${PV}-fc34.x86_64.rpm"
 
+SRC_URI="https://cdn.insynchq.com/builds/linux/insync_${PV}-bullseye_amd64.deb"
+
+RESTRICT="strip"
+
+LICENSE="as-is"
 SLOT="0"
-KEYWORDS="-* ~amd64"
-DEPEND=""
-RDEPEND="${DEPEND}"
+KEYWORDS="~amd64"
+IUSE="wayland"
 
-RESTRICT="mirror strip"
+RDEPEND="
+	app-crypt/gnupg
+	dev-libs/nss
+	>=sys-libs/glibc-2.31
+	x11-misc/xdg-utils
+	wayland? (
+		dev-libs/wayland
+	)
+"
 
-S=${WORKDIR}
+PATCHES=(
+	"${FILESDIR}/insync-3-fix-desktop-file.patch"
+	"${FILESDIR}/insync-3-lib64.patch"
+)
 
 QA_FLAGS_IGNORED=".*"
 QA_PREBUILT="*"
 
-PATCHES=(
-    "${FILESDIR}/insync-3.3.2-lib64.patch"
-    "${FILESDIR}/insync-3.3.2-ca-path.patch"
-)
-
 src_unpack() {
-    rpm_src_unpack ${A}
+	unpack "insync_${PV}-bullseye_amd64.deb"
+	unpack "${WORKDIR}/data.tar.gz"
+
+	mkdir -p "${S}"
+	mv "${WORKDIR}"/usr "${S}"/
 }
 
 src_install() {
-    cp -pPR "${S}"/usr "${D}"/ || die "Installation failed"
-    mv "${D}"/usr/lib "${D}"/usr/lib64
-    rm -Rf "${D}"/usr/lib64/.build-id
-    gunzip "${D}"/usr/share/man/man1/insync.1.gz
-}
+	gzip -d usr/share/doc/insync/changelog.gz
+	dodoc usr/share/doc/insync/changelog
 
-pkg_postinst() {
-    xdg_desktop_database_update
-    xdg_mimeinfo_database_update
-    xdg_icon_cache_update
-}
+	rm -rf "${WORKDIR}"/"${P}"/usr/share/doc/
 
-pkg_postrm() {
-    xdg_desktop_database_update
-    xdg_mimeinfo_database_update
-    xdg_icon_cache_update
-}
+	cp -pPR "${WORKDIR}"/"${P}"/usr/ "${D}"/ || die "Installation failed"
+	mv "${D}"/usr/lib "${D}"/usr/lib64
 
-pkg_postinst() {
-    elog "To automatically start insync add 'insync start' to your session"
+	rm -Rf "${D}"/usr/lib64/.build-id
+	rm -rf "${D}"/usr/share/man/man1/
+
+	use wayland || rm -r "${D}/usr/lib64/insync/PySide2/plugins/wayland-graphics-integration-server" "${D}/usr/lib64/insync/libQt5WaylandCompositor.so.5" || die "Error removing wayland related files from install."
+
+	# Make sure it starts on KDE
+	# There is a bug that on some KDE systems Insync doesn't start properly
+	# Or crashes when the tray icon is clicked
+	# This is because Insync is using bundled libstdc++.so.6 which might lead to a version conflict
+	# So we remove it here
+	rm -Rf "${D}"/usr/lib64/insync/libstdc++.so.6
+
+	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70-${PN}" || die
+
+	insinto "/etc/revdep-rebuild" && doins "${T}/70-${PN}" || die
+
+	insinto /usr/share/mime/packages
+	doins usr/share/mime/packages/insync-helper.xml
 }

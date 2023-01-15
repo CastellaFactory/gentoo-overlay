@@ -1,4 +1,4 @@
-diff --git a/insync-3.3.2/usr/bin/insync b/insync-3.3.2/usr/bin/insync
+diff --git a/insync-3.0.27/usr/bin/insync b/insync-3.0.27/usr/bin/insync
 index a738ec8..b8f0304 100755
 --- a/usr/bin/insync
 +++ b/usr/bin/insync
