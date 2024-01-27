@@ -8,7 +8,7 @@ inherit unpacker xdg
 DESCRIPTION="Advanced cross-platform Dropbox, Google Drive and Microsoft OneDrive client"
 HOMEPAGE="https://www.insynchq.com/"
 
-SRC_URI="https://cdn.insynchq.com/builds/linux/insync_${PV}-bullseye_amd64.deb"
+SRC_URI="https://cdn.insynchq.com/builds/linux/insync_${PV}-mantic_amd64.deb"
 
 RESTRICT="strip"
 
@@ -20,6 +20,7 @@ IUSE="wayland"
 RDEPEND="
 	app-crypt/gnupg
 	dev-libs/nss
+	dev-qt/qtvirtualkeyboard:5
 	>=sys-libs/glibc-2.31
 	x11-misc/xdg-utils
 	wayland? (
@@ -36,7 +37,7 @@ QA_FLAGS_IGNORED=".*"
 QA_PREBUILT="*"
 
 src_unpack() {
-	unpack "insync_${PV}-bullseye_amd64.deb"
+	unpack "insync_${PV}-mantic_amd64.deb"
 	unpack "${WORKDIR}/data.tar.gz"
 
 	mkdir -p "${S}"
@@ -63,10 +64,6 @@ src_install() {
 	# This is because Insync is using bundled libstdc++.so.6 which might lead to a version conflict
 	# So we remove it here
 	rm -Rf "${D}"/usr/lib64/insync/libstdc++.so.6
-
-	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70-${PN}" || die
-
-	insinto "/etc/revdep-rebuild" && doins "${T}/70-${PN}" || die
 
 	insinto /usr/share/mime/packages
 	doins usr/share/mime/packages/insync-helper.xml
